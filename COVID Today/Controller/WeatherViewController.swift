@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-//import PopupDialog
+import PopupDialog
 
 class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManagerDelegate{
 
@@ -45,6 +45,8 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     //Create variables
     var CovidInfection: String?
     var CaseDensity: String?
+    var newCases: String?
+    var newCasesEval: String?
     
     var Date: String?
     var stringSunriseDate: String?
@@ -80,6 +82,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     var dataUnit: String?
     var lastMethod: String?
     var tempUnitStr: String?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded")
@@ -168,7 +171,43 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     //info Button for POP-UP
     @IBAction func infoButton(_ sender: Any) {
         
-//
+        let title = "COVID Risk"
+        let message = (newCasesEval ?? " ") + " " + (newCases ?? "0") + " Cases"
+        let buttonOne = CancelButton(title: "Cancel") {
+            print("You canceled the car dialog.")
+        }
+        
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message, image: nil)
+        
+        
+        let dialogAppearance = PopupDialogDefaultView.appearance()
+
+        dialogAppearance.titleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
+        dialogAppearance.titleFont =  .systemFont(ofSize: 30)
+        dialogAppearance.messageColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
+        dialogAppearance.messageFont = .systemFont(ofSize: 20)
+        
+        CancelButton.appearance().titleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
+        
+        
+        
+        let containerAppearance = PopupDialogContainerView.appearance()
+        containerAppearance.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.70)
+        containerAppearance.cornerRadius = 35
+        
+        let ov = PopupDialogOverlayView.appearance()
+        ov.blurEnabled     = true
+        ov.blurRadius      = 30
+        ov.liveBlurEnabled = true
+        ov.opacity         = 0.7
+        ov.color           = .black
+        // Create buttons
+        popup.addButtons([buttonOne])
+        
+        
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
         
     }
     
@@ -196,6 +235,9 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
             self.Risk.text = " \(covidInfo.InfectionRateString)% "
             self.CovidInfection = covidInfo.InfectionRateString
             self.CaseDensity = covidInfo.CaseDensityString
+            self.newCases = covidInfo.NewCasesString
+            self.newCasesEval = covidInfo.NewCaseEval
+            
             self.tableView.reloadData()
         }
          

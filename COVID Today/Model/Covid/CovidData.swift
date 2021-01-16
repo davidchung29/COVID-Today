@@ -9,6 +9,7 @@ import Foundation
 
 struct covidData: Decodable{
     let metrics: Metrics
+    let actuals: Actuals
 }
 
 struct Metrics: Decodable{
@@ -16,3 +17,6 @@ struct Metrics: Decodable{
     let caseDensity: Double
 }
                
+struct Actuals: Decodable{
+    let newCases: Int
+}
