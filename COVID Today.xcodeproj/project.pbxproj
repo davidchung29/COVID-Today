@@ -17,6 +17,18 @@
 		CC47A07025B201F200BD2CF8 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A06F25B201F200BD2CF8 /* WeatherManager.swift */; };
 		CC47A07725B2021300BD2CF8 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A07625B2021300BD2CF8 /* WeatherData.swift */; };
 		CC47A07A25B2021E00BD2CF8 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A07925B2021E00BD2CF8 /* WeatherModel.swift */; };
+		CC47A09125B205C800BD2CF8 /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A09025B205C800BD2CF8 /* InfoManager.swift */; };
+		CC47A09625B2061F00BD2CF8 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A09525B2061F00BD2CF8 /* InfoModel.swift */; };
+		CC47A09925B2063400BD2CF8 /* InfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A09825B2063400BD2CF8 /* InfoData.swift */; };
+		CC47A09D25B2065D00BD2CF8 /* getFipsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A09C25B2065D00BD2CF8 /* getFipsManager.swift */; };
+		CC47A0A025B206A700BD2CF8 /* getFipsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A09F25B206A700BD2CF8 /* getFipsData.swift */; };
+		CC47A0A325B206CC00BD2CF8 /* getFipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0A225B206CC00BD2CF8 /* getFipsModel.swift */; };
+		CC47A0A825B206F700BD2CF8 /* CovidManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0A725B206F700BD2CF8 /* CovidManager.swift */; };
+		CC47A0AB25B2070900BD2CF8 /* CovidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0AA25B2070900BD2CF8 /* CovidModel.swift */; };
+		CC47A0AE25B2071F00BD2CF8 /* CovidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0AD25B2071F00BD2CF8 /* CovidData.swift */; };
+		CC47A0B125B26D6F00BD2CF8 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0B025B26D6F00BD2CF8 /* Info.swift */; };
+		CC47A0B525B26DEF00BD2CF8 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0B325B26DEF00BD2CF8 /* InfoCell.swift */; };
+		CC47A0B625B26DEF00BD2CF8 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC47A0B425B26DEF00BD2CF8 /* InfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +44,18 @@
 		CC47A06F25B201F200BD2CF8 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		CC47A07625B2021300BD2CF8 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		CC47A07925B2021E00BD2CF8 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		CC47A09025B205C800BD2CF8 /* InfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
+		CC47A09525B2061F00BD2CF8 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		CC47A09825B2063400BD2CF8 /* InfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoData.swift; sourceTree = "<group>"; };
+		CC47A09C25B2065D00BD2CF8 /* getFipsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFipsManager.swift; sourceTree = "<group>"; };
+		CC47A09F25B206A700BD2CF8 /* getFipsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFipsData.swift; sourceTree = "<group>"; };
+		CC47A0A225B206CC00BD2CF8 /* getFipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFipsModel.swift; sourceTree = "<group>"; };
+		CC47A0A725B206F700BD2CF8 /* CovidManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidManager.swift; sourceTree = "<group>"; };
+		CC47A0AA25B2070900BD2CF8 /* CovidModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidModel.swift; sourceTree = "<group>"; };
+		CC47A0AD25B2071F00BD2CF8 /* CovidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidData.swift; sourceTree = "<group>"; };
+		CC47A0B025B26D6F00BD2CF8 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		CC47A0B325B26DEF00BD2CF8 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		CC47A0B425B26DEF00BD2CF8 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +95,6 @@
 				CC47A06C25B201CD00BD2CF8 /* View */,
 				CC47A06D25B201D500BD2CF8 /* Controller */,
 				CC47A05B25B1E43E00BD2CF8 /* Assets.xcassets */,
-				CC47A05D25B1E43E00BD2CF8 /* LaunchScreen.storyboard */,
 				CC47A06025B1E43E00BD2CF8 /* Info.plist */,
 			);
 			path = "COVID Today";
@@ -81,6 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				CC47A07425B201FF00BD2CF8 /* Weather */,
+				CC47A09325B205CC00BD2CF8 /* Info */,
+				CC47A09B25B2064500BD2CF8 /* Fips */,
+				CC47A0A625B206DC00BD2CF8 /* Covid */,
+				CC47A0B025B26D6F00BD2CF8 /* Info.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,7 +115,10 @@
 		CC47A06C25B201CD00BD2CF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC47A05D25B1E43E00BD2CF8 /* LaunchScreen.storyboard */,
 				CC47A05825B1E43C00BD2CF8 /* Main.storyboard */,
+				CC47A0B325B26DEF00BD2CF8 /* InfoCell.swift */,
+				CC47A0B425B26DEF00BD2CF8 /* InfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,10 +135,40 @@
 			isa = PBXGroup;
 			children = (
 				CC47A06F25B201F200BD2CF8 /* WeatherManager.swift */,
-				CC47A07625B2021300BD2CF8 /* WeatherData.swift */,
 				CC47A07925B2021E00BD2CF8 /* WeatherModel.swift */,
+				CC47A07625B2021300BD2CF8 /* WeatherData.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		CC47A09325B205CC00BD2CF8 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				CC47A09025B205C800BD2CF8 /* InfoManager.swift */,
+				CC47A09525B2061F00BD2CF8 /* InfoModel.swift */,
+				CC47A09825B2063400BD2CF8 /* InfoData.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		CC47A09B25B2064500BD2CF8 /* Fips */ = {
+			isa = PBXGroup;
+			children = (
+				CC47A09C25B2065D00BD2CF8 /* getFipsManager.swift */,
+				CC47A0A225B206CC00BD2CF8 /* getFipsModel.swift */,
+				CC47A09F25B206A700BD2CF8 /* getFipsData.swift */,
+			);
+			path = Fips;
+			sourceTree = "<group>";
+		};
+		CC47A0A625B206DC00BD2CF8 /* Covid */ = {
+			isa = PBXGroup;
+			children = (
+				CC47A0A725B206F700BD2CF8 /* CovidManager.swift */,
+				CC47A0AA25B2070900BD2CF8 /* CovidModel.swift */,
+				CC47A0AD25B2071F00BD2CF8 /* CovidData.swift */,
+			);
+			path = Covid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC47A0B625B26DEF00BD2CF8 /* InfoCell.xib in Resources */,
 				CC47A05F25B1E43E00BD2CF8 /* LaunchScreen.storyboard in Resources */,
 				CC47A05C25B1E43E00BD2CF8 /* Assets.xcassets in Resources */,
 				CC47A05A25B1E43C00BD2CF8 /* Main.storyboard in Resources */,
@@ -181,13 +242,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC47A0A025B206A700BD2CF8 /* getFipsData.swift in Sources */,
+				CC47A09D25B2065D00BD2CF8 /* getFipsManager.swift in Sources */,
 				CC47A07025B201F200BD2CF8 /* WeatherManager.swift in Sources */,
+				CC47A0A825B206F700BD2CF8 /* CovidManager.swift in Sources */,
 				CC47A05725B1E43C00BD2CF8 /* WeatherViewController.swift in Sources */,
 				CC47A05325B1E43C00BD2CF8 /* AppDelegate.swift in Sources */,
+				CC47A0B525B26DEF00BD2CF8 /* InfoCell.swift in Sources */,
+				CC47A09125B205C800BD2CF8 /* InfoManager.swift in Sources */,
 				CC47A07A25B2021E00BD2CF8 /* WeatherModel.swift in Sources */,
 				CC47A05525B1E43C00BD2CF8 /* SceneDelegate.swift in Sources */,
+				CC47A0AE25B2071F00BD2CF8 /* CovidData.swift in Sources */,
 				CC47A07725B2021300BD2CF8 /* WeatherData.swift in Sources */,
 				CC47A06925B201B600BD2CF8 /* Constants.swift in Sources */,
+				CC47A09625B2061F00BD2CF8 /* InfoModel.swift in Sources */,
+				CC47A0A325B206CC00BD2CF8 /* getFipsModel.swift in Sources */,
+				CC47A0AB25B2070900BD2CF8 /* CovidModel.swift in Sources */,
+				CC47A09925B2063400BD2CF8 /* InfoData.swift in Sources */,
+				CC47A0B125B26D6F00BD2CF8 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
