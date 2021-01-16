@@ -17,14 +17,18 @@ protocol infoManagerDelegate {
 
 struct InfoManager{
     var delegate: infoManagerDelegate?
-    let infoURL = "https://api.openweathermap.org/data/2.5/onecall?&appid=d75fa73296a848712ab42e4e6c142a6a&units=imperial"
-    func fetchInfoWeather(latitude: CLLocationDegrees, longitute: CLLocationDegrees) {
-        let urlString = "\(infoURL)&lat=\(latitude)&lon=\(longitute)"
+
+    func fetchInfoWeather(latitude: CLLocationDegrees, longitute: CLLocationDegrees, units: String) {
+        var urlString: String{
+            if units == K.Units.imperial{
+                return "\(K.URL.Info.imperialURL)&lat=\(latitude)&lon=\(longitute)"
+            }else{
+                return "\(K.URL.Info.metricURL)&lat=\(latitude)&lon=\(longitute)"
+            }
+        }
         performRequest(with: urlString)
-        print("fetched URL")
-        print(urlString)
     }
-    func performRequest(with urlString: String) {
+        func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
@@ -73,4 +77,3 @@ struct InfoManager{
         }
     }
 }
-

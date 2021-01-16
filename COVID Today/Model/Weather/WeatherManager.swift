@@ -5,6 +5,7 @@
 //  Created by David Jr on 1/15/21.
 //
 
+import Foundation
 import CoreLocation
 
 protocol WeatherManagerDelegate {
@@ -19,9 +20,9 @@ struct WeatherManager {
     func fetchWeather(cityName: String, units: String) {
         var urlString: String{
             if units == K.Units.imperial{
-                return "\(K.URL.imperialURL)&q=\(cityName)"
+                return "\(K.URL.Weather.imperialURL)&q=\(cityName)"
             }else{
-                return "\(K.URL.metricURL)&q=\(cityName)"
+                return "\(K.URL.Weather.metricURL)&q=\(cityName)"
             }
         }
         performRequest(with: urlString)
@@ -31,9 +32,9 @@ struct WeatherManager {
         
         var urlString: String{
             if units == K.Units.imperial{
-                return "\(K.URL.imperialURL)&lat=\(latitude)&lon=\(longitute)"
+                return "\(K.URL.Weather.imperialURL)&lat=\(latitude)&lon=\(longitute)"
             }else{
-                return "\(K.URL.metricURL)&lat=\(latitude)&lon=\(longitute)"
+                return "\(K.URL.Weather.metricURL)&lat=\(latitude)&lon=\(longitute)"
             }
         }
         performRequest(with: urlString)

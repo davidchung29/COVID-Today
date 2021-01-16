@@ -25,8 +25,19 @@ struct K{
         
     }
     struct URL{
-        static let imperialURL = "https://api.openweathermap.org/data/2.5/weather?appid=d75fa73296a848712ab42e4e6c142a6a&units=imperial"
-        static let metricURL = "https://api.openweathermap.org/data/2.5/weather?appid=d75fa73296a848712ab42e4e6c142a6a&units=metric"
+        
+        struct Weather {
+            static let imperialURL = "https://api.openweathermap.org/data/2.5/weather?appid=d75fa73296a848712ab42e4e6c142a6a&units=imperial"
+            static let metricURL = "https://api.openweathermap.org/data/2.5/weather?appid=d75fa73296a848712ab42e4e6c142a6a&units=metric"
+        }
+        
+        struct Info{
+            static let imperialURL = "https://api.openweathermap.org/data/2.5/onecall?&appid=d75fa73296a848712ab42e4e6c142a6a&units=imperial"
+            static let metricURL = "https://api.openweathermap.org/data/2.5/onecall?&appid=d75fa73296a848712ab42e4e6c142a6a&units=metric"
+            
+        }
+        
+
     }
     struct lastUsed{
         static let cityName = "cityName"
