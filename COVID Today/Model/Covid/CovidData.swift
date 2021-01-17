@@ -19,4 +19,5 @@ struct Metrics: Decodable{
                
 struct Actuals: Decodable{
     let newCases: Int
+    //let vaccinesDistributed: Double
 }

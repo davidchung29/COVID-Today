@@ -11,7 +11,7 @@ struct covidModel: Decodable{
     let InfectionRate: Double
     let CaseDensity: Double
     let NewCases: Int
-    
+    //let VaccinesDistributed: Double
     var InfectionRateString:String{
         String(format: "%.3f", InfectionRate)
     }
@@ -30,6 +30,8 @@ struct covidModel: Decodable{
             return "↓"
         }
     }
+
+    
     var CaseDensitySafety: String{
         switch CaseDensity {
         case 0..<5:

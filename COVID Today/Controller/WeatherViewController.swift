@@ -4,11 +4,12 @@
 //
 //  Created by David Jr on 1/15/21.
 //
-
+    
+    
 import UIKit
 import CoreLocation
-
 import PopupDialog
+import AudioToolbox
 
 class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManagerDelegate{
 
@@ -47,6 +48,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     var CaseDensity: String?
     var newCases: String?
     var newCasesEval: String?
+    var Vacc: String?
     
     var Date: String?
     var stringSunriseDate: String?
@@ -82,9 +84,19 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     var dataUnit: String?
     var lastMethod: String?
     var tempUnitStr: String?
-   
+    
+    // UX
+    let generator = UIImpactFeedbackGenerator(style: .medium)
+    let lgenerator = UIImpactFeedbackGenerator(style: .light)
+    
+    
+//    var container: NSPersistentContainer!
+//    let commit = Commit()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        generator.impactOccurred()
         print("loaded")
         
         
@@ -118,7 +130,27 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         
         
         
+//        container = NSPersistentContainer(name: "CoreModel")
+//
+//        container.loadPersistentStores { storeDescription, error in
+//            if let error = error{
+//                print("unresolved error \(error)")
+//            }
+//        }
+//
+//        commit.unitSystem = "metric"
     }
+    
+//    func saveContext() {
+//        if container.viewContext.hasChanges {
+//            do {
+//                try container.viewContext.save()
+//            } catch {
+//                print("An error occurred while saving: \(error)")
+//            }
+//        }
+//    }
+
     
     @IBAction func fPressed(_ sender: Any) {
         self.dataUnit = K.Units.imperial
@@ -126,6 +158,9 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         
         tempF.alpha = 1.0
         tempC.alpha = 0.4
+        
+        //haptic vibrate
+        lgenerator.impactOccurred()
         
         if self.lastMethod == K.lastUsed.cityName{
             DispatchQueue.main.async {
@@ -147,6 +182,9 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         
         tempF.alpha = 0.4
         tempC.alpha = 1.0
+        
+        //haptic vibrate
+        lgenerator.impactOccurred()
         
         if self.lastMethod == K.lastUsed.cityName{
             DispatchQueue.main.async {
@@ -171,11 +209,14 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     //info Button for POP-UP
     @IBAction func infoButton(_ sender: Any) {
         
-        let title = "COVID Risk"
+        let title = "COVID Information"
         let message = (newCasesEval ?? " ") + " " + (newCases ?? "0") + " Cases"
         let buttonOne = CancelButton(title: "Cancel") {
             print("You canceled the car dialog.")
         }
+        
+        //haptic
+        lgenerator.impactOccurred()
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message, image: nil)
@@ -184,9 +225,9 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         let dialogAppearance = PopupDialogDefaultView.appearance()
 
         dialogAppearance.titleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
-        dialogAppearance.titleFont =  .systemFont(ofSize: 30)
+        dialogAppearance.titleFont =  .systemFont(ofSize: 25)
         dialogAppearance.messageColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
-        dialogAppearance.messageFont = .systemFont(ofSize: 20)
+        dialogAppearance.messageFont = .systemFont(ofSize: 15)
         
         CancelButton.appearance().titleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
         
@@ -208,7 +249,6 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)
-        
     }
     
     //This function is called when WEATHER is UPDATED
@@ -230,7 +270,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
     //This function is called when the COVID data is UPDATED
     func didUpdateCovid(_ covidManager: covidManager, covidInfo: covidModel) {
         DispatchQueue.main.async {
-            
+                
             self.Health.text = "\(covidInfo.CaseDensitySafety)"
             self.Risk.text = " \(covidInfo.InfectionRateString)% "
             self.CovidInfection = covidInfo.InfectionRateString
@@ -238,9 +278,11 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
             self.newCases = covidInfo.NewCasesString
             self.newCasesEval = covidInfo.NewCaseEval
             
+            
+                
             self.tableView.reloadData()
         }
-         
+             
     }
     
     func didFailCovid(error: Error) {
@@ -329,9 +371,10 @@ extension WeatherViewController: UITableViewDataSource{
 extension WeatherViewController: UITextFieldDelegate {
     
     @IBAction func searchPressed(_ sender: UIButton) {
-        searchTextField.endEditing(true)
+        //searchTextField.endEditing(true)
         
-    
+        lgenerator.impactOccurred()
+        searchTextField.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -342,21 +385,26 @@ extension WeatherViewController: UITextFieldDelegate {
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
             self.tableView.reloadData()
+            searchTextField.endEditing(true)
             return true
         } else {
             textField.placeholder = "Type something"
-            return false
+            return true
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if let city = searchTextField.text {
-            self.currentCity = String(city)
-            weatherManager.fetchWeather(cityName: city, units: self.dataUnit ?? K.Units.imperial)
-            infoManager.fetchInfoWeather(latitude: lat ?? 0, longitute: lon ?? 0, units: self.dataUnit ?? K.Units.imperial)
+            DispatchQueue.main.async {
+                self.currentCity = String(city)
+                self.weatherManager.fetchWeather(cityName: city, units: self.dataUnit ?? K.Units.imperial)
+                self.infoManager.fetchInfoWeather(latitude: self.lat ?? 0, longitute: self.lon ?? 0, units: self.dataUnit ?? K.Units.imperial)
+                
+                self.lastMethod = K.lastUsed.cityName
+                self.tableView.reloadData()
+            }
             
-            self.lastMethod = K.lastUsed.cityName
         }
         
         searchTextField.text = ""
@@ -373,6 +421,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
+        
+        lgenerator.impactOccurred()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -467,4 +517,3 @@ extension WeatherViewController: getFipsManagerDelegate{
         print(error)
     }
 }
-

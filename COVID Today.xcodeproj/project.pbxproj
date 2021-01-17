@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		CC47A0B125B26D6F00BD2CF8 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0B025B26D6F00BD2CF8 /* Info.swift */; };
 		CC47A0B525B26DEF00BD2CF8 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47A0B325B26DEF00BD2CF8 /* InfoCell.swift */; };
 		CC47A0B625B26DEF00BD2CF8 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC47A0B425B26DEF00BD2CF8 /* InfoCell.xib */; };
+		CC9347C225B378EE00427571 /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC9347C025B378EE00427571 /* CoreModel.xcdatamodeld */; };
 		DB5F9B174BA7913A0F290EED /* Pods_COVID_Today.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A1592610EDD0D71F3859D /* Pods_COVID_Today.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		CC47A0B025B26D6F00BD2CF8 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CC47A0B325B26DEF00BD2CF8 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		CC47A0B425B26DEF00BD2CF8 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		CC9347C125B378EE00427571 /* CoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				CC47A06D25B201D500BD2CF8 /* Controller */,
 				CC47A05B25B1E43E00BD2CF8 /* Assets.xcassets */,
 				CC47A06025B1E43E00BD2CF8 /* Info.plist */,
+				CC9347C025B378EE00427571 /* CoreModel.xcdatamodeld */,
 			);
 			path = "COVID Today";
 			sourceTree = "<group>";
@@ -192,7 +195,6 @@
 				7977E6E165E6FC28B4A9333D /* Pods-COVID Today.debug.xcconfig */,
 				8D2ECF2ADB847F8F41E049CE /* Pods-COVID Today.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -327,6 +329,7 @@
 				CC47A09625B2061F00BD2CF8 /* InfoModel.swift in Sources */,
 				CC47A0A325B206CC00BD2CF8 /* getFipsModel.swift in Sources */,
 				CC47A0AB25B2070900BD2CF8 /* CovidModel.swift in Sources */,
+				CC9347C225B378EE00427571 /* CoreModel.xcdatamodeld in Sources */,
 				CC47A09925B2063400BD2CF8 /* InfoData.swift in Sources */,
 				CC47A0B125B26D6F00BD2CF8 /* Info.swift in Sources */,
 			);
@@ -532,6 +535,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC9347C025B378EE00427571 /* CoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC9347C125B378EE00427571 /* CoreModel.xcdatamodel */,
+			);
+			currentVersion = CC9347C125B378EE00427571 /* CoreModel.xcdatamodel */;
+			path = CoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC47A04725B1E43C00BD2CF8 /* Project object */;
 }
