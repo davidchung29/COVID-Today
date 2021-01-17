@@ -129,7 +129,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         tableView.tableFooterView = UIView()
         
         
-        
+        self.dataUnit = K.Units.imperial
 //        container = NSPersistentContainer(name: "CoreModel")
 //
 //        container.loadPersistentStores { storeDescription, error in
