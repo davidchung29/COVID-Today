@@ -99,6 +99,11 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         generator.impactOccurred()
         print("loaded")
         
+        self.dataUnit = K.Units.imperial
+        self.tempUnitStr = "°F"
+        
+        tempF.alpha = 1.0
+
         
 
         

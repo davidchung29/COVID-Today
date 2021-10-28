@@ -18,7 +18,7 @@ protocol covidManagerDelegate {
 struct covidManager{
     var delegate: covidManagerDelegate?
     let covidURL1 = "https://api.covidactnow.org/v2/county/"
-    let covidURL2 = ".json?apiKey=a5f296125a084cd6b91658d2b7baa5d8"
+    let covidURL2 = ".json?apiKey=bf6d52a4e2dd4eab9dad1f65b145fe71"
     func fetchCovid(fipsCode: String) {
         let urlString = "\(covidURL1)\(fipsCode)\(covidURL2)"
         performRequest(with: urlString)
