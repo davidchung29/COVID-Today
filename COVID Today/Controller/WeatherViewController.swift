@@ -103,6 +103,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         self.tempUnitStr = "°F"
         
         tempF.alpha = 1.0
+        tempC.alpha = 0.4
 
         
 
