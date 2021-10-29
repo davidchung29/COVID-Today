@@ -134,8 +134,6 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         //hides extra table view cells by createing a uiview over it
         tableView.tableFooterView = UIView()
         
-        
-        self.dataUnit = K.Units.imperial
 //        container = NSPersistentContainer(name: "CoreModel")
 //
 //        container.loadPersistentStores { storeDescription, error in
@@ -145,6 +143,7 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
 //        }
 //
 //        commit.unitSystem = "metric"
+        
     }
     
 //    func saveContext() {
@@ -295,6 +294,10 @@ class WeatherViewController: UIViewController, covidManagerDelegate,WeatherManag
         print(error)
     }
     
+
+    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+        CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
+    }
     
 // Uncomment the section below to SEND DATA to a DIFFERENT VIEW CONTROLLER
 //    @IBAction func viewDataPressed(_ sender: UIButton) {
@@ -405,7 +408,21 @@ extension WeatherViewController: UITextFieldDelegate {
             DispatchQueue.main.async {
                 self.currentCity = String(city)
                 self.weatherManager.fetchWeather(cityName: city, units: self.dataUnit ?? K.Units.imperial)
-                self.infoManager.fetchInfoWeather(latitude: self.lat ?? 0, longitute: self.lon ?? 0, units: self.dataUnit ?? K.Units.imperial)
+                
+                // get lon and lat from city name
+                self.getCoordinateFrom(address: self.currentCity!) { coordinate, error in
+                    guard let coordinate = coordinate, error == nil else { return }
+                    // don't forget to update the UI from the main thread
+                    DispatchQueue.main.async {
+                        print(self.currentCity!, "Location:", coordinate.latitude, coordinate.longitude) // Rio de Janeiro, Brazil Location: CLLocationCoordinate2D(latitude: -22.9108638, longitude: -43.2045436)
+                        // the previous function call returns as a CLLocationCoordinate2D, so we must seperate into latitude and longitude.
+                        self.lat = coordinate.latitude
+                        self.lon = coordinate.longitude
+                        //use lat and lon
+                        self.infoManager.fetchInfoWeather(latitude: self.lat ?? 0, longitute: self.lon ?? 0, units: self.dataUnit ?? K.Units.imperial)
+                        self.fipsManager.fetchInfoFips(latitude: self.lat ?? 0, longitute: self.lon ?? 0)
+                    }
+                }
                 
                 self.lastMethod = K.lastUsed.cityName
                 self.tableView.reloadData()

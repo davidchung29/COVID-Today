@@ -51,6 +51,7 @@ struct getFipsManager{
             let decodedData = try decoder.decode(getFipsData.self, from: dataInfo)
             let fips = decodedData.results[0].county_fips
             let fipsInfo = getFipsModel(fipsData: fips)
+            print(fips)
             print("parseJSON fips success!")
             
             return fipsInfo

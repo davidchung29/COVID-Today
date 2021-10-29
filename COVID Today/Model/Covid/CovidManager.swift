@@ -55,6 +55,7 @@ struct covidManager{
             let newCases = decodedData.actuals.newCases
             
             let covidInfo = covidModel(InfectionRate: infectionRate, CaseDensity: caseDensity, NewCases: newCases)
+            print(infectionRate)
             print("parseJson covid success")
             return covidInfo
             
